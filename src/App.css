@@ -9,6 +9,20 @@ input {
   appearance: none;
 }
 
+.button {
+  cursor: pointer;
+  display: inline-block;
+  padding: .75rem;
+  margin-left: .5rem;
+  border-radius: .25rem;
+  background: #000;
+  color: #FFF;
+}
+
+.button--primary {
+  background: #06F;
+}
+
 .codebox {
   width: calc(100vw - 50px);
   margin: 0 auto;
@@ -66,6 +80,7 @@ header {
 }
 
 .task__action {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,17 +104,4 @@ header {
   outline: 0;
   border: 1px solid black;
   border-radius: .25rem;
-}
-
-.button {
-  display: inline-block;
-  padding: .75rem;
-  margin-left: .5rem;
-  border-radius: .25rem;
-  background: #000;
-  color: #FFF;
-}
-
-.button--primary {
-  background: #06F;
 }

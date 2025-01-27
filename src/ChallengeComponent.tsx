@@ -19,9 +19,18 @@ export function ChallengeComponent() {
     }
   }
 
-  const handleMoveTask = () => {
-    // Handle moving available tasks by updating the status
-  }
+  const handleMoveTask  = (id: number, direction: string) => {
+    setTasks(tasks.map(task => {
+      if (task.id === id) {
+        const currentIndex = statusList.indexOf(task.status);
+        const nextIndex = direction === 'promote'
+          ? (currentIndex + 1) % statusList.length
+          : (currentIndex - 1 + statusList.length) % statusList.length;
+        return { ...task, status: statusList[nextIndex] };
+      }
+      return task;
+    }));
+  };
 
   return (
     <div className="form">
@@ -37,13 +46,23 @@ export function ChallengeComponent() {
 
                 <div key={task.id} className="task">
                   {status !== 'To Do' && (
-                    <button className="task__action task--demote">←</button>
+                    <button
+                      onClick={() => handleMoveTask(task.id, 'demote')}
+                      className="task__action task--demote"
+                    >
+                    ←
+                    </button>
                   )}
 
                   <p className="task__title">{task.title}</p>
 
                   {status !== 'Done' && (
-                    <button className="task__action task--promote">→</button>
+                    <button
+                    onClick={() => handleMoveTask(task.id, 'promote')}
+                    className="task__action task--promote"
+                    >
+                    →
+                    </button>
                   )}
                 </div>
 
