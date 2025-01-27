@@ -45,21 +45,34 @@ export function ChallengeComponent() {
               .map((task) => (
 
                 <div key={task.id} className="task">
-                  {status !== 'To Do' && (
+                  {status !== 'To Do' ? (
                     <button
                       onClick={() => handleMoveTask(task.id, 'demote')}
                       className="task__action task--demote"
                     >
                     ←
                     </button>
-                  )}
+                  ) : (
+                    <button
+                      className="task__action task--disabled"
+                    >
+                    ←
+                    </button>
+                  )
+                  }
 
                   <p className="task__title">{task.title}</p>
 
-                  {status !== 'Done' && (
+                  {status !== 'Done' ? (
                     <button
                     onClick={() => handleMoveTask(task.id, 'promote')}
                     className="task__action task--promote"
+                    >
+                    →
+                    </button>
+                  ) : (
+                    <button
+                      className="task__action task--disabled"
                     >
                     →
                     </button>

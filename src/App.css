@@ -99,6 +99,11 @@ header {
   background: #c20b0b;
 }
 
+.task--disabled {
+  cursor: not-allowed;
+  background: #A7A7A7;
+}
+
 .form__input {
   padding: .65rem;
   outline: 0;
