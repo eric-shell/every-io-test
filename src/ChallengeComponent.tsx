@@ -33,7 +33,7 @@ export function ChallengeComponent() {
           placeholder="Enter new task"
         />
         <button
-          className="form__button"
+          className="form__button button button--primary"
           onClick={handleAddTask}
         >
         Add
