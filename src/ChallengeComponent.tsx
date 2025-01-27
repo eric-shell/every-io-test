@@ -9,7 +9,8 @@ export function ChallengeComponent() {
     { id: 3, title: 'Rake the Leaves', status: 'Done' }
   ];
 
-  // Initialize future state varibles here
+  const [tasks, setTasks] = useState(initialTasks);
+  const [newTask, setNewTask] = useState('');
 
   const handleAddTask = () => {
     // Handle submitting new task to list state
@@ -23,7 +24,30 @@ export function ChallengeComponent() {
     <div className="form">
 
       <div className="form__columns">
-        <p>Column markup will go here.</p>
+
+        {statusList.map((status) => (
+          <div key={status} className="form__column">
+            <h2 className="form__heading">{status}</h2>
+            {tasks
+              .filter((task) => task.status === status)
+              .map((task) => (
+
+                <div key={task.id} className="task">
+                  {status !== "To Do" && (
+                    <button className="task__action task--demote">←</button>
+                  )}
+
+                  <p>{task.title}</p>
+
+                  {status !== "Done" && (
+                    <button className="task__action task--promote">→</button>
+                  )}
+                </div>
+
+              ))}
+          </div>
+        ))}
+
       </div>
 
       <div className="form__submit">

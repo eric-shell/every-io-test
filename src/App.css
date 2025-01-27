@@ -1,12 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+button,
+input {
+  outline: 0;
+  border: 0;
+  appearance: none;
+}
+
 .codebox {
   width: calc(100vw - 50px);
   margin: 0 auto;
   max-height: 100%;
   background: #fcfcfc;
   border: 1px solid #000000;
-  box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 40px;
+  border-radius: 2rem;
 }
 
 header {
@@ -19,11 +29,57 @@ header {
   padding: 1rem;
 }
 
+.form__columns {
+  padding: 0 0 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__column {
+  padding: 1rem;
+  width: calc(33.33333% - .7rem);
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+}
+
+.form__heading {
+  text-align: center;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: .75rem;
+}
+
+.task__action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  font-size: 2rem;
+  color: #FFF;
+  padding: .5rem .75rem .75rem;
+  border-radius: .5rem;
+}
+
+.task--promote {
+  background: #218d1f;
+}
+
+.task--demote {
+  background: #c20b0b;
+}
+
 .form__input {
   padding: .65rem;
   outline: 0;
   border: 1px solid black;
-  appearance: none;
   border-radius: .25rem;
 }
 
@@ -34,9 +90,6 @@ header {
   border-radius: .25rem;
   background: #000;
   color: #FFF;
-  outline: 0;
-  border: 0;
-  appearance: none;
 }
 
 .button--primary {
