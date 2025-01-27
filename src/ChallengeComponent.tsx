@@ -13,8 +13,10 @@ export function ChallengeComponent() {
   const [newTask, setNewTask] = useState('');
 
   const handleAddTask = () => {
-    setTasks([...tasks, { id: Date.now(), title: newTask, status: 'To Do' }]);
-    setNewTask('');
+    if (newTask.trim()) {
+      setTasks([...tasks, { id: Date.now(), title: newTask, status: 'To Do' }]);
+      setNewTask('');
+    }
   }
 
   const handleMoveTask = () => {
