@@ -45,38 +45,23 @@ export function ChallengeComponent() {
               .map((task) => (
 
                 <div key={task.id} className="task">
-                  {status !== 'To Do' ? (
-                    <button
-                      onClick={() => handleMoveTask(task.id, 'demote')}
-                      className="task__action task--demote"
-                    >
+                  <button
+                    onClick={status !== 'To Do' ? () => handleMoveTask(task.id, 'demote') : undefined}
+                    className={`task__action ${status === 'To Do' ? 'task--disabled' : 'task--demote'}`}
+                    disabled={status === 'To Do'}
+                  >
                     ←
-                    </button>
-                  ) : (
-                    <button
-                      className="task__action task--disabled"
-                    >
-                    ←
-                    </button>
-                  )
-                  }
+                  </button>
 
                   <p className="task__title">{task.title}</p>
 
-                  {status !== 'Done' ? (
-                    <button
-                    onClick={() => handleMoveTask(task.id, 'promote')}
-                    className="task__action task--promote"
-                    >
+                  <button
+                    onClick={status !== 'Done' ? () => handleMoveTask(task.id, 'promote') : undefined}
+                    className={`task__action ${status === 'Done' ? 'task--disabled' : 'task--promote'}`}
+                    disabled={status === 'Done'}
+                  >
                     →
-                    </button>
-                  ) : (
-                    <button
-                      className="task__action task--disabled"
-                    >
-                    →
-                    </button>
-                  )}
+                  </button>
                 </div>
 
               ))}
