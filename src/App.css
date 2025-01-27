@@ -13,10 +13,11 @@ input {
   cursor: pointer;
   display: inline-block;
   padding: .75rem;
-  margin-left: .5rem;
+  margin-left: 1rem;
   border-radius: .25rem;
   background: #000;
   color: #FFF;
+  font-size: 1.25rem;
 }
 
 .button--primary {
@@ -105,6 +106,7 @@ header {
 }
 
 .form__input {
+  font-size: 1.25rem;
   padding: .65rem;
   outline: 0;
   border: 1px solid black;
