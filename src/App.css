@@ -57,6 +57,14 @@ header {
   border-radius: .75rem;
 }
 
+.task + .task {
+  margin-top: 1rem;
+}
+
+.task__title {
+  font-size: 1.25rem;
+}
+
 .task__action {
   display: flex;
   justify-content: center;

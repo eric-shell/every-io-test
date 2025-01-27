@@ -13,7 +13,8 @@ export function ChallengeComponent() {
   const [newTask, setNewTask] = useState('');
 
   const handleAddTask = () => {
-    // Handle submitting new task to list state
+    setTasks([...tasks, { id: Date.now(), title: newTask, status: 'To Do' }]);
+    setNewTask('');
   }
 
   const handleMoveTask = () => {
@@ -33,13 +34,13 @@ export function ChallengeComponent() {
               .map((task) => (
 
                 <div key={task.id} className="task">
-                  {status !== "To Do" && (
+                  {status !== 'To Do' && (
                     <button className="task__action task--demote">←</button>
                   )}
 
-                  <p>{task.title}</p>
+                  <p className="task__title">{task.title}</p>
 
-                  {status !== "Done" && (
+                  {status !== 'Done' && (
                     <button className="task__action task--promote">→</button>
                   )}
                 </div>
@@ -55,6 +56,8 @@ export function ChallengeComponent() {
           className="form__input"
           type="text"
           placeholder="Enter new task"
+          value={newTask}
+          onChange={(e) => setNewTask(e.target.value)}
         />
         <button
           className="form__button button button--primary"
